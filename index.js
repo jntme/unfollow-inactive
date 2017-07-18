@@ -10,7 +10,7 @@ const client = new Twitter({
 
 const url = 'friends/list';
 const params = {
-  count: 5,
+  count: 10,
   include_user_entities: false,
 };
 
