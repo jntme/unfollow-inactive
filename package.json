@@ -1,0 +1,32 @@
+{
+  "name": "unfollow-inactive",
+  "version": "1.0.0",
+  "description": "A simple command line tool to unfollow inactive accounts.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "NODE_ENV=development nodemon index.js",
+    "lint": "./node_modules/.bin/eslint index.js config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jntme/unfollow-inactive.git"
+  },
+  "keywords": [
+    "twitter"
+  ],
+  "author": "jntme",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jntme/unfollow-inactive/issues"
+  },
+  "homepage": "https://github.com/jntme/unfollow-inactive#readme",
+  "dependencies": {
+    "twitter": "^1.7.1"
+  },
+  "devDependencies": {
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb-base": "^11.2.0",
+    "eslint-plugin-import": "^2.7.0"
+  }
+}
