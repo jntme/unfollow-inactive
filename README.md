@@ -5,7 +5,7 @@ A simple command line tool to unfollow inactive accounts.
 
 ```javascript
 
-const unIn = require('./unfollow-inactive);
+const unIn = require('./unfollow-inactive');
 
 //get your keys at https://apps.twitter.com/
 const authObj = {
