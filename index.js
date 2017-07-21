@@ -34,7 +34,7 @@ function getAllFriends () {
   })
 }
 
-exports.unina = function () {
+module.exports = function () {
   getAllFriends().then(friends => friends.map(friend => (
     {
       id: friend.id,
