@@ -1,15 +1,20 @@
 const Twitter = require('twitter')
-require('./myTwitterKeys')
 
-const client = new Twitter({
-  consumer_key: process.env.consumer_key,
-  consumer_secret: process.env.consumer_secret,
-  access_token_key: process.env.access_token_key,
-  access_token_secret: process.env.access_token_secret
-})
+/** 
+ * the authobj should look like
+  
+  {
+    consumer_key: '',
+    consumer_secret: '',
+    access_token_key: '',
+    access_token_secret: '' 
+  }
 
-function getAllFriends () {
+  **/
+
+function getAllFriends (authObj) {
   return new Promise((resolve, reject) => {
+    const client = new Twitter(authObj)
     const friendsArr = []
 
     const callAndCallAgain = (nextCursor) => {
@@ -34,8 +39,8 @@ function getAllFriends () {
   })
 }
 
-module.exports = function () {
-  getAllFriends().then(friends => friends.map(friend => (
+module.exports = function (authObj) {
+  getAllFriends(authObj).then(friends => friends.map(friend => (
     {
       id: friend.id,
       name: friend.name,
