@@ -34,26 +34,28 @@ function getAllFriends () {
   })
 }
 
-getAllFriends().then(friends => friends.map(friend => (
-  {
-    id: friend.id,
-    name: friend.name,
-    screen_name: friend.screen_name,
-    lastStatusCreated: friend.status && friend.status.created_at ? new Date(friend.status.created_at) : new Date(0)
-  }
-)))
-  .then((friends) => {
-    const aYearAgo = new Date().setFullYear((new Date().getFullYear() - 1))
-    return friends.filter(friend => friend.lastStatusCreated < aYearAgo)
-  })
-
-  .then(filteredFriends => {
-    if (filteredFriends.lenth === 0) console.log('None of your followers matches your time criteria.')
-    else {
-      console.log('Based on you time criteria, you should consider unfollow these accounts:\n')
-      filteredFriends.forEach(friend => {
-        console.log(`${friend.screen_name}; has not posted since ${friend.lastStatusCreated}`)
-      })
+exports.unina = function () {
+  getAllFriends().then(friends => friends.map(friend => (
+    {
+      id: friend.id,
+      name: friend.name,
+      screen_name: friend.screen_name,
+      lastStatusCreated: friend.status && friend.status.created_at ? new Date(friend.status.created_at) : new Date(0)
     }
-  })
-  .catch(err => console.error(err))
+  )))
+    .then((friends) => {
+      const aYearAgo = new Date().setFullYear((new Date().getFullYear() - 1))
+      return friends.filter(friend => friend.lastStatusCreated < aYearAgo)
+    })
+
+    .then(filteredFriends => {
+      if (filteredFriends.lenth === 0) console.log('None of your followers matches your time criteria.')
+      else {
+        console.log('Based on you time criteria, you should consider unfollow these accounts:\n')
+        filteredFriends.forEach(friend => {
+          console.log(`${friend.screen_name}; has not posted since ${friend.lastStatusCreated}`)
+        })
+      }
+    })
+    .catch(err => console.error(err))
+}
