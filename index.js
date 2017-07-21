@@ -1,5 +1,5 @@
 const Twitter = require('twitter')
-require('./mykeys')
+require('./myTwitterKeys')
 
 const client = new Twitter({
   consumer_key: process.env.consumer_key,
