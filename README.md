@@ -15,5 +15,5 @@ const authObj = {
     access_token_secret: '<your_token_secret>' 
 }
 
-unIn(authOb);
+unIn(authObj);
 ```
