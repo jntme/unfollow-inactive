@@ -54,7 +54,7 @@ module.exports = function (authObj) {
     })
 
     .then(filteredFriends => {
-      if (filteredFriends.lenth === 0) console.log('None of your followers matches your time criteria.')
+      if (filteredFriends.length === 0) console.log('None of your followers matches your time criteria.')
       else {
         console.log('Based on you time criteria, you should consider unfollow these accounts:\n')
         filteredFriends.forEach(friend => {
